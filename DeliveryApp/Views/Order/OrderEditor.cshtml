@@ -1,0 +1,67 @@
+﻿@model OrderViewModel
+
+<partial name="_Validation" />
+
+<h5 class="bg-@Model?.Theme text-white text-center p-2">@Model?.Action</h5>
+
+<form asp-action="@Model?.Action" method="post">
+    <div class="form-group">
+        <label asp-for="Order.OrderId"></label>
+        <input class="form-control" asp-for="Order.OrderId" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Order.NumberOrder"></label>
+        <input class="form-control" asp-for="Order.NumberOrder" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Order.SenderCity"></label>
+        <div>
+            <span asp-validation-for="Order.SenderCity" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="Order.SenderCity"
+               readonly="@Model?.ReadOnly" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Order.SenderAdress"></label>
+        <div>
+            <span asp-validation-for="Order.SenderAdress" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="Order.SenderAdress"
+               readonly="@Model?.ReadOnly" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Order.RecipientCity"></label>
+        <div>
+            <span asp-validation-for="Order.RecipientCity" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="Order.RecipientCity"
+               readonly="@Model?.ReadOnly" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Order.RecipientAdress"></label>
+        <div>
+            <span asp-validation-for="Order.RecipientAdress" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="Order.RecipientAdress"
+               readonly="@Model?.ReadOnly" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Order.CargoWeight"></label>
+        <div>
+            <span asp-validation-for="Order.CargoWeight" class="text-danger"></span>
+        </div>
+        <input class="form-control" asp-for="Order.CargoWeight"
+               readonly="@Model?.ReadOnly" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Order.DeliveryDate"></label>
+        <input class="form-control" asp-for="Order.DeliveryDate" readonly />
+    </div>
+        @if (Model?.ShowAction == true) {
+        <button class="btn btn-@Model?.Theme mt-2" type="submit">
+            @Model?.Action
+        </button>
+        }
+    <a class="btn btn-secondary mt-2" asp-action="Index">Back</a>
+    </form>
+

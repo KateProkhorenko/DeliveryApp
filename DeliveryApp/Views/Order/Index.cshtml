@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Order>
+
+<h4 class="bg-primary text-white text-center p-2">Orders</h4>
+<table class="table table-sm table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NumberOrder</th>
+            <th>SenderCity</th>
+            <th>SenderAdress</th>
+            <th>RecipientCity</th>
+            <th>RecipientAdress</th>
+            <th>CargoWeight</th>
+            <th>DeliveryDate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Order r in Model)
+        {
+            <tr>
+                <td>@r.OrderId</td>
+                <td class="text-center">
+                    <a asp-action="Details" asp-route-id="@r.OrderId">@r.NumberOrder</a>
+                </td>
+                <td>@r.SenderCity</td>
+                <td>@r.SenderAdress</td>
+                <td>@r.RecipientCity</td>
+                <td>@r.RecipientAdress</td>
+                <td>@r.CargoWeight</td>
+                <td>@r.DeliveryDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Create" class="btn btn-primary">Create</a>
